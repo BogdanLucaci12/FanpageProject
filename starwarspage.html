@@ -1,0 +1,217 @@
+ <?php
+session_start();
+
+if(array_key_exists("ID", $_COOKIE)) {
+  $_SESSION['ID'] = $_COOKIE['ID'];
+}
+
+else if(!array_key_exists("ID", $_SESSION)) {
+  header("Location: logareinregistrare.php?nesetata");
+}
+require 'conectare.php';
+if(isset($_SESSION['ID'])){
+  $sesiune=$_SESSION['ID'];
+  $sql="SELECT * FROM login_starwars WHERE ID='".$sesiune."'";
+  $query=mysqli_query($conectare, $sql);
+  $potrivire=mysqli_fetch_assoc($query);
+  $nume=$potrivire['Nume'];
+}
+?> 
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Fanpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <script src="jQuery.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="stylesheet" href="starwarspage.css">
+   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+   <link href="fontawesome-free-6.4.0-web/css/fontawesome.css" rel="stylesheet">
+   <link href="fontawesome-free-6.4.0-web/css/brands.css" rel="stylesheet">
+   <link href="fontawesome-free-6.4.0-web/css/solid.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+  </head>
+  <body>
+    <header>
+      <div class="firstheader">
+        <div class="utilizator">
+          <p> Bine ai venit,
+           <?php 
+          echo $nume;
+        ?>!
+        </p>
+        </div>
+      <img src="imagini/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png" alt="logo" width="150px" height="70px">
+     
+        <button value="logout" name="logout" class="LogOut">
+          <?php
+       if(array_key_exists('ID', $_SESSION)){
+    echo '<a href="logareinregistrare.php?logout">Log Out </a>';} ?>
+    </button>
+        </div>
+        <div class="nav">
+          <nav> 
+            <a href="starwarspage.html">Home</a>
+            <a href="#Thirdsection"">News+Features</a>
+            <a href="">Video</a>
+            <a href="">Films</a>
+            <a href=""">Series</a>
+            <a href="">Contact</a>
+            <a href="">More</a>
+           
+          </nav>
+        </div>
+    </header>
+    <main>
+      <section id="Firstsection">
+        
+          <div class="slider-outer">
+            <i id="next" class="fa-solid fa-arrow-right fa-2xl "></i>
+            <div class="slider-inner">
+      <img src="imagini/bokatan.jpg" class="active" id="good">
+      <img src="imagini/darthvader.jpg" alt="" id="bad">
+      <img src="imagini/emperor.jpg" alt="" id="bad">
+    </div>
+    <i id="prev" class="fa-solid fa-arrow-left fa-2xl"></i>
+    </div>
+   
+    </section>
+
+      <section id="Secondsection">
+        <div class="about">
+        <p>Star Wars: The old republic.</p><br>
+        <p>Here were the most powerful Jedi and Sith</p> <br>
+      <a href="#">Explore</a>
+      </div>
+      <i class="Prev""><</i>
+      <div class="containerprimarsecondsection">
+        
+        
+        <div class="bloc activ">
+          <div class="imagineabloc"><img src="imagini/features1.jpg" alt=""></div>
+          <div class="continutbloc"><p>The new season is Live.</p><p>Go on DisneyPlus!</p></div>
+        </div>
+      <div class="bloc activ">
+        <div class="imagineabloc"><img src="imagini/features2.jpeg" alt=""></div>
+        <div class="continutbloc"><p>The new released video-game</p><p>Buy it from Electronic Arts</p></div>
+      </div>
+      <div class="bloc activ">
+        <div class="imagineabloc"><img src="imagini/ahsokaseries.jpg" alt=""></div>
+        <div class="continutbloc"><p>New series will be released on 5 August.</p><p>Stay Tooned</p></div>
+      </div>
+    
+    <div class="bloc">
+      <div class="imagineabloc"><img src="imagini/badbatch.jpg" alt=""></div>
+      <div class="continutbloc"><p>The ending of this series was awesome</p><p>Ian McDiarmid nailed the character</p></div>
+    </div>
+    <div class="bloc">
+      <div class="imagineabloc"><img src="imagini/oldrepublic.jpg" alt=""></div>
+      <div class="continutbloc"><p>All the fans want from Disney a movie for this spectacular Old Republic Series</p></div>
+    </div>
+    <div class="bloc">
+      <div class="imagineabloc"><img src="imagini/tws.jpg" alt=""></div>
+      <div class="continutbloc"><p>All the fans want from Disney a movie for this spectacular Old Republic Series</p></div>
+    </div>
+    
+    </div>
+    <i class="Next">></i>
+    </section>
+      <section id="Thirdsection">
+      <div class="news">
+        <p>Latest News + Features</p>
+        <p>View All</p>
+       </div>
+      <div class="primarycontainer">
+      <div class="containerthirdsection">
+        <div class="progress-bar">
+       
+        </div>
+        <div class="handle left-handle"><div class="text">&#129080</div></div>
+        <div class="slider">
+       <img src="imagini/slider1.jpg">
+       <img src="imagini/slider2.jpg">
+       <img src="imagini/slider3.jpg">
+       <img src="imagini/slider4.jpg">
+       <img src="imagini/slider5.jpg">
+        <img src="imagini/slider6.jpg">
+        <img src="imagini/slider7.jpg">
+      </div>
+      <div class="handle right-handle"><div class="text">&#129082</div></div> 
+    </div>
+  </div>
+  <div class="containerthirdsection">
+    <div class="progress-bar">
+   
+    </div>
+    <div class="handle left-handle"><div class="text">&#129080</div></div>
+    <div class="slider">
+ <?php
+    $sql="SELECT * FROM imagini ORDER BY ID DESC";
+    $query=mysqli_query($conectare, $sql);
+    if(mysqli_num_rows($query)>0){
+      while($images=mysqli_fetch_assoc($query)){ ?>
+      <img src="imaginiincarcate/<?=$images['Imagine']?>" alt="">
+   <?php   }
+    }
+ ?>
+  </div>
+  <div class="handle right-handle"><div class="text">&#129082</div></div> 
+</div>
+<div class="formular">
+  <p>Choose a file to upload than it will display above if you scroll the second slider</p>
+  <div class="continutformular">
+    <div class="erori">
+    <?php
+    $error="";
+    if(isset($_GET['info']) && $_GET['info']=='inserat'){
+      $error.="Imaginea a fost inserata<br>";
+      }
+      if(isset($_GET['info']) && $_GET['info']=='Extension'){
+        $error.="Se accepta doar extensii .jpg, .png, .jpeg <br>";
+        }
+        if(isset($_GET['info']) && $_GET['info']=='error occur'){
+          $error.="Problema la trimiterea formularului<br>";
+          }
+            if($error != ""){?>
+            <p><?php echo "$error" ?></p>
+          <?php }?>
+          </div>
+   <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="my_image" id="inputfile">
+    <button type="submit" name="submit" value="upload" id="submit">Submit your image</button>
+
+   </form>
+  </div>
+   </div>
+      </section>
+  </main>
+  <footer>
+    <div class="primaryfooter">
+    <div class="title">Move From Star Wars:</div>
+    <div class="sociallink">
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-youtube"></i>
+    </div>
+    </div>
+    <div class="copyright">
+      <div class="title">TM & &#xa9; Lucasfilm Ltd. All Rights Goes To <a href="https://www.starwars.com/">Star Wars</a></div>
+      <div class="footercontent">
+        <p>Terms of Use</p>
+        <p>Additional Content Information</p>
+        <p>Privacy Policy</p>
+        <p>Star Wars at shopDisney</p>
+        <p>Star Wars Helpdesk</p>
+        <p>Personal Information</p>
+      </div>
+    </div>
+  </footer>
+     <script src="starwarspage.js">
+   </script>
+  </body>
+</html>

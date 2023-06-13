@@ -1,0 +1,66 @@
+body {
+    background: url('Star_Wars_Logo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+.container{
+    width: auto;
+   height: auto;
+    margin-top: 100px;
+    /* margin: 200px 0; */
+    border: 5px solid yellow;
+    backdrop-filter: blur(15px);
+   width: 50%;
+   border-radius: 25px;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    
+}
+
+.container form fieldset{
+    display: block;
+    margin: 50px 0;
+}
+label{
+    float: left;
+}
+.checkbox{
+   margin-right: auto;
+}
+#SignUp{
+    display: none;
+}
+.togglebutton{
+    color: black;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: yellow;
+    margin-left: 15px;
+    display: inline;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform .2s ease-in;
+}
+.togglebutton:hover{
+    color: blue;
+    font-size: 23px;
+}
+
+form p{
+  margin: 20px 0;
+}
+.eroare{
+   margin: 0 auto;
+    font-size: 25px;
+    border: 5px solid yellow;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+color: white;
+    height: auto;
+    width: 50%;
+    margin-top: 35px;
+   }
