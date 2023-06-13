@@ -18,7 +18,7 @@ $(document).ready(function(){
       nextImg.addClass('active').css('z-index', 10);
     }
     updateBoxShadow(nextImg);
-  });
+  })
   $('#prev').on('click', function(){
     var currentImg= $('.active');
     var prevImg=currentImg.prev();
